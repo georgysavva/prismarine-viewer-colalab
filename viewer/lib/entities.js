@@ -7,7 +7,7 @@ const { dispose3 } = require('./dispose')
 function getEntityMesh (entity, scene) {
   if (entity.name) {
     try {
-      const e = new Entity('1.16.4', entity.name, scene)
+      const e = new Entity('1.16.4', entity.name, scene, entity.username)
 
       if (entity.username !== undefined) {
         const canvas = document.createElement('canvas')

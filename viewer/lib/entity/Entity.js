@@ -1,6 +1,7 @@
 /* global THREE */
 
 const entities = require('./entities.json')
+const skins = require('../../../assets/skins.json')
 const { loadTexture } = globalThis.isElectron ? require('../utils.electron.js') : require('../utils')
 
 const elemFaces = {
@@ -201,7 +202,7 @@ function getMesh (texture, jsonModel) {
 }
 
 class Entity {
-  constructor (version, type, scene) {
+  constructor (version, type, scene, username) {
     const e = entities[type]
     if (!e) throw new Error(`Unknown entity ${type}`)
 
@@ -210,6 +211,18 @@ class Entity {
       const texture = e.textures[name]
       if (!texture) continue
       // console.log(JSON.stringify(jsonModel, null, 2))
+
+      if(username !== undefined) {
+        console.log("username: " + username)
+        console.log("texture: " + texture)
+        console.log("test0")
+        console.log("test1: " + skins[username])
+        if(skins[username]) {
+          texture = texture.replace('steve', skins[username])
+        }
+        console.log("new texture: " + texture);
+      }
+
       const mesh = getMesh(texture.replace('textures', 'textures/' + version) + '.png', jsonModel)
       /* const skeletonHelper = new THREE.SkeletonHelper( mesh )
       skeletonHelper.material.linewidth = 2
