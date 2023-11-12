@@ -208,7 +208,7 @@ class Entity {
 
     this.mesh = new THREE.Object3D()
     for (const [name, jsonModel] of Object.entries(e.geometry)) {
-      const texture = e.textures[name]
+      let texture = e.textures[name]
       if (!texture) continue
       // console.log(JSON.stringify(jsonModel, null, 2))
 
