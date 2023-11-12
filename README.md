@@ -9,5 +9,8 @@
 
 ## 2. How to use
 
-* Because of my laziness, after `npx webpack`, you need to execute `cp -r ./assets/skins ./public/textures/1.16.4/entity/`
-  * You could refer to script `./deploy_on_yxh_machine.fish`
+1. exec `npx webpack`
+2. exec `cp -r ./assets/skins ./public/textures/1.16.4/entity/`
+3. copy this whold folder to your node_modules and rename it `prismarine-viewer`
+* You could refer to script `./deploy_on_yxh_machine.fish`
+  * sorry for my laziness
