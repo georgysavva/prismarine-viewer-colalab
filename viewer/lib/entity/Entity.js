@@ -213,14 +213,15 @@ class Entity {
       // console.log(JSON.stringify(jsonModel, null, 2))
 
       if(username !== undefined) {
-        console.log("username: " + username)
-        console.log("texture: " + texture)
-        console.log("test0")
-        console.log("test1: " + skins[username])
+        // console.log("username: " + username)
+        // console.log("texture: " + texture)
+        // console.log("test0")
+        // console.log("test1: " + skins[username])
         if(skins[username]) {
           texture = texture.replace('steve', skins[username])
+          console.log("new texture: " + texture);
         }
-        console.log("new texture: " + texture);
+        // console.log("new texture: " + texture);
       }
 
       const mesh = getMesh(texture.replace('textures', 'textures/' + version) + '.png', jsonModel)

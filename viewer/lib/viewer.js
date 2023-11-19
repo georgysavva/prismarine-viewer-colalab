@@ -6,6 +6,7 @@ const { Entities } = require('./entities')
 const { Primitives } = require('./primitives')
 const { getVersion } = require('./version')
 const { Vec3 } = require('vec3')
+const assert = require('assert')
 
 class Viewer {
   constructor (renderer) {
@@ -64,6 +65,54 @@ class Viewer {
     this.camera.rotation.set(pitch, yaw, 0, 'ZYX')
   }
 
+  /**
+   * This function will set scene.background, ambientLight, directionalLight, according to time of the day
+   * 
+   * @param {*} tick Time of the day, in ticks. 
+   * Time is based on ticks, where 20 ticks happen every second. There are 24000 ticks in a day, making Minecraft days exactly 20 minutes long.
+   * The time of day is based on the timestamp modulo 24000. 0 is sunrise, 6000 is noon, 12000 is sunset, and 18000 is midnight.
+   */
+  setTimeOfDay (tick) {
+    console.log("timeOfDay: ", tick)
+
+    /*
+    0~12000 => day
+    12000~14000 => dusk
+    14000~22000 => night
+    22000~24000 => dawn
+    */
+
+    let time = 1;
+
+    if (tick <= 11500) {
+      time = 1;
+    } else if(tick <= 14000) {
+      time = 1 - (tick - 11500) / 2500;
+    } else if(tick <= 21500) {
+      time = 0
+    } else if(tick <= 24000) {
+      time = (tick - 21500) / 2500;
+    } else assert(false, "timeOfDay is exceed 24000")
+
+    const bg_r = Math.floor(173 * time)
+    const bg_g = Math.floor(216 * time)
+    const bg_b = Math.floor(230 * time)
+    const ambient = Math.floor(104 * time + 104)
+    const light = Math.floor(128 * time + 127)
+
+    this.scene.background = new THREE.Color(`rgb(${bg_r}, ${bg_g}, ${bg_b})`)
+
+    this.scene.remove(this.ambientLight)
+    this.ambientLight = new THREE.AmbientLight(`rgb(${ambient}, ${ambient}, ${ambient})`)
+    this.scene.add(this.ambientLight)
+
+    this.scene.remove(this.directionalLight)
+    this.directionalLight = new THREE.DirectionalLight(`rgb(${light}, ${light}, ${light})`, 0.5)
+    this.directionalLight.position.set(1, 1, 0.5).normalize()
+    this.directionalLight.castShadow = true
+    this.scene.add(this.directionalLight)
+  }
+
   listen (emitter) {
     emitter.on('entity', (e) => {
       this.updateEntity(e)
@@ -83,6 +132,10 @@ class Viewer {
 
     emitter.on('blockUpdate', ({ pos, stateId }) => {
       this.setBlockStateId(new Vec3(pos.x, pos.y, pos.z), stateId)
+    })
+
+    emitter.on('timeOfDay', ({ tick }) => {
+      this.setTimeOfDay(tick)
     })
 
     this.domElement.addEventListener('pointerdown', (evt) => {

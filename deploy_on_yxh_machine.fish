@@ -1,6 +1,7 @@
 echo "DEPLOY: begin"
 npx webpack
 cp -r ./assets/skins ./public/textures/1.16.4/entity/
+# cp -r ./assets/skins ./public/textures/1.18.1/entity/
 echo "DEPLOY: npx webpack done"
 
 rm -rf ../Mineflayer/node_modules/prismarine-viewer/

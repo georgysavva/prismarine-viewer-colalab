@@ -22,6 +22,7 @@ class WorldView extends EventEmitter {
   }
 
   listenToBot (bot) {
+
     const worldView = this
     this.listeners[bot.username] = {
       // 'move': botPosition,
@@ -41,12 +42,22 @@ class WorldView extends EventEmitter {
       blockUpdate: function (oldBlock, newBlock) {
         const stateId = newBlock.stateId ? newBlock.stateId : ((newBlock.type << 4) | newBlock.metadata)
         worldView.emitter.emit('blockUpdate', { pos: oldBlock.position, stateId })
-      }
+      },
+      // time: function () {
+      //   const time = bot.time.timeOfDay
+      //   worldView.emitter.emit('timeOfDay', { time } )
+      // }
     }
 
     for (const [evt, listener] of Object.entries(this.listeners[bot.username])) {
       bot.on(evt, listener)
     }
+
+    bot.on('time', function() {
+      const time = this.time.timeOfDay
+      // console.log(time)
+      worldView.emitter.emit('timeOfDay', { tick: time })
+    })
 
     for (const id in bot.entities) {
       const e = bot.entities[id]
