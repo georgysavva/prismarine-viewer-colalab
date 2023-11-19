@@ -7,6 +7,10 @@
 * Rendering of player skins
   * ![pic1](./README/pic1.png)
 
+* Rendering of night
+  * ![pic2](./README/pic2.png)
+  * ![pic3](./README/pic3.png)
+
 ## 2. How to use
 
 1. recommande node.js version is `v18.18.2`
