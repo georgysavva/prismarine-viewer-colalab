@@ -1,7 +1,7 @@
 {
-  "name": "prismarine-viewer",
-  "version": "1.25.0",
-  "description": "Web based viewer",
+  "name": "prismarine-viewer-colalab",
+  "version": "1.0.1",
+  "description": "Customized version of the prismarine-viewer for colalab",
   "main": "index.js",
   "scripts": {
     "test": "jest --verbose --runInBand --forceExit",
@@ -21,7 +21,7 @@
     ]
   },
   "dependencies": {
-    "@tweenjs/tween.js": "^20.0.3",
+    "@tweenjs/tween.js": "^18.6.4",
     "compression": "^1.7.4",
     "express": "^4.17.1",
     "minecraft-data": "^3.0.0",
