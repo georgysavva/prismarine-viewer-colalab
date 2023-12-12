@@ -1,6 +1,8 @@
 # prismarine-viewer-colalab
 
 > Customized version of the prismarine-viewer for colalab
+>
+> Origin: https://github.com/PrismarineJS/prismarine-viewer
 
 ## 1. Improvements
 

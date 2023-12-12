@@ -10,7 +10,7 @@
     "prepare": "node viewer/prerender.js && webpack",
     "fix": "standard --fix"
   },
-  "author": "PrismarineJS",
+  "author": "YXHXianYu",
   "license": "MIT",
   "standard": {
     "ignore": [
