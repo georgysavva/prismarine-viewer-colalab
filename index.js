@@ -1,5 +1,6 @@
 module.exports = {
   mineflayer: require('./lib/mineflayer'),
+  freecamera: require('./lib/freecamera'),
   standalone: require('./lib/standalone'),
   headless: require('./lib/headless'),
   viewer: require('./viewer'),
