@@ -1,8 +1,16 @@
 import {Bot} from "mineflayer";
+import {EventEmitter} from 'events';
+import {Vec3} from 'vec3';
 
 export function mineflayer(bot: Bot, settings: {
     viewDistance?: number;
     firstPerson?: boolean;
+    port?: number;
+    prefix?: string;
+});
+
+export function freecamera(bot: Bot, freecameras: Record<string, EventEmitter>, id: number, settings: {
+    viewDistance?: number;
     port?: number;
     prefix?: string;
 });
