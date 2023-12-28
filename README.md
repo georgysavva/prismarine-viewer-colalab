@@ -12,10 +12,14 @@
   * ![pic2](https://raw.githubusercontent.com/YXHXianYu/prismarine-viewer-colalab/master/README/pic2.png)
   * ![pic3](https://raw.githubusercontent.com/YXHXianYu/prismarine-viewer-colalab/master/README/pic3.png)
 
-## 2. How to build
+## 2. How to install
+
+* `npm install prismarine-viewer-colalab`
+
+## 3. How to build
 
 * recommande node.js version is `v18.18.2`
 * exec `npm install`
 * exec `npx webpack`
 * exec `cp -r ./assets/skins ./public/textures/1.16.4/entity/`
-* copy this whold folder to your node_modules and rename it `prismarine-viewer`
+* exec `npm push`
