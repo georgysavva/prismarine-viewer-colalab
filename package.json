@@ -1,6 +1,6 @@
 {
   "name": "prismarine-viewer-colalab",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Customized version of the prismarine-viewer for colalab",
   "main": "index.js",
   "scripts": {
