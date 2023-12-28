@@ -22,4 +22,5 @@
 * exec `npm install`
 * exec `npx webpack`
 * exec `cp -r ./assets/skins ./public/textures/1.16.4/entity/`
-* exec `npm push`
+* exec `npm version patch`
+* exec `npm publish`
