@@ -1,4 +1,5 @@
 import {Bot} from "mineflayer";
+import {EventEmitter} from "events";
 import {Vec3} from 'vec3';
 
 export function mineflayer(bot: Bot, settings: {
@@ -8,11 +9,12 @@ export function mineflayer(bot: Bot, settings: {
     prefix?: string;
 });
 
-// export function freecamera(bot: Bot, freecameras: Record<string, EventEmitter>, id: number, settings: {
-//     viewDistance?: number;
-//     port?: number;
-//     prefix?: string;
-// });
+export function freecamera(bot: Bot, settings: {
+    viewDistance?: number;
+    width?: number,
+    height?: number,
+    jpegOptions?: any,
+});
 
 export function standalone(options: {
     version: versions;
@@ -33,17 +35,13 @@ export function standalone(options: {
 //     jpegOption: any;
 // });
 
-export function headless(
-    bot: Bot,
-    views: { [key: string]: string },
-    settings: {
-        viewDistance?: number;
-        interval?: number;
-        width?: number,
-        height?: number,
-        jpegOptions?: any,
-    }
-);
+export function headless( bot: Bot, views: { [key: string]: string }, settings: {
+    viewDistance?: number;
+    interval?: number;
+    width?: number,
+    height?: number,
+    jpegOptions?: any,
+});
 
 export const viewer: {
     Viewer: any;
