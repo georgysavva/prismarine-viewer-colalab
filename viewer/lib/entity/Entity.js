@@ -219,7 +219,7 @@ class Entity {
         // console.log("test1: " + skins[username])
         if(skins[username]) {
           texture = texture.replace('steve', skins[username])
-          console.log("new texture: " + texture);
+          // console.log("new texture: " + texture);
         }
       }
 

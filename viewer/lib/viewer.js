@@ -33,7 +33,7 @@ class Viewer {
 
   setVersion (version) {
     version = getVersion(version)
-    console.log('Using version: ' + version)
+    // console.log('Using version: ' + version)
     this.version = version
     this.world.setVersion(version)
     this.entities.clear()

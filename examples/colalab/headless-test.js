@@ -54,7 +54,7 @@ let idx = 0
 setInterval(() => {
     base64Image = views[bot.username]
     if (base64Image === undefined) return
-    saveBase64AsImage(base64Image, 'output' + idx + '.jpg');
+    saveBase64AsImage(base64Image, 'output' + '.jpg');
     idx += 1
 }, 250)
 
