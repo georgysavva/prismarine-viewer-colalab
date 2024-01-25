@@ -10,7 +10,7 @@ function getEntityMesh (entity, scene) {
       const e = new Entity('1.16.4', entity.name, scene, entity.username)
       // const e = new Entity('1.18.1', entity.name, scene, entity.username)
 
-      if (entity.username !== undefined) {
+      if (typeof document !== 'undefined' && entity.username !== undefined) {
         const canvas = document.createElement('canvas')
         canvas.width = 500
         canvas.height = 100
@@ -34,7 +34,7 @@ function getEntityMesh (entity, scene) {
       }
       return e.mesh
     } catch (err) {
-      console.log(err)
+      // console.log(err) // modified by YXH_XianYu
     }
   }
 

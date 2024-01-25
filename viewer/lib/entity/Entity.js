@@ -221,7 +221,6 @@ class Entity {
           texture = texture.replace('steve', skins[username])
           console.log("new texture: " + texture);
         }
-        // console.log("new texture: " + texture);
       }
 
       const mesh = getMesh(texture.replace('textures', 'textures/' + version) + '.png', jsonModel)

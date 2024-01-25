@@ -73,7 +73,7 @@ class Viewer {
    * The time of day is based on the timestamp modulo 24000. 0 is sunrise, 6000 is noon, 12000 is sunset, and 18000 is midnight.
    */
   setTimeOfDay (tick) {
-    console.log("timeOfDay: ", tick)
+    // console.log("timeOfDay: ", tick)
 
     /*
     0~12000 => day
