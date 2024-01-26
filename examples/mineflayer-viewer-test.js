@@ -1,5 +1,5 @@
 const mineflayer = require('mineflayer')
-const mineflayerViewer = require('../../lib/mineflayer')
+const mineflayerViewer = require('../lib/mineflayer')
 
 const { pathfinder, Movements } = require('mineflayer-pathfinder')
 const { GoalXZ } = require('mineflayer-pathfinder').goals
