@@ -14,12 +14,13 @@ const { createCanvas } = safeRequire('node-canvas-webgl/lib')
 
 const fs = require('fs'); // add by yxhxianyu
 
-const { WorldView, Viewer, getBufferFromStream } = require('../../viewer')
+const { WorldView, Viewer, getBufferFromStream } = require('../viewer')
 
 const mineflayer = require('mineflayer')
 
 // Import the module from headless.js in the lib directory
-const headlessViewer = require('../../lib/headless-base64')
+const freecamera = require('../lib/freecamera-base64')
+const { Vec3 } = require('vec3')
 
 // Setup a mineflayer bot
 const bot = mineflayer.createBot({
@@ -29,17 +30,21 @@ const bot = mineflayer.createBot({
     version: '1.19',
 })
 
-let views = {}
+let freecameras = {}
 
 bot.once('spawn', () => {
     try {
-        // Call the function from your headless.js module
-        headlessViewer(bot, views, { width: 256, height: 144 })
-        bot.setControlState('jump', true)
-        // Here you can add additional assertions or checks as needed
+        freecameras['1'] = freecamera(bot, { width: 256, height: 144 })
+        freecameras['1'].set({ pos: new Vec3(-12, 110, 83), yaw: 3.14, pitch: 0})
     } catch (error) {
         console.error('Error during test:', error)
     }
+
+    setInterval(() => {
+        base64Image = freecameras['1'].get()
+        if (base64Image === undefined) return
+        saveBase64AsImage(base64Image, 'output' + '.jpg');
+    }, 250)
 })
 
 function saveBase64AsImage(base64String, filename) {
@@ -49,13 +54,3 @@ function saveBase64AsImage(base64String, filename) {
         if (err) { console.error(err); } else { console.log('Successfully saved image.'); }
     });
 }
-
-let idx = 0
-setInterval(() => {
-    base64Image = views[bot.username]
-    if (base64Image === undefined) return
-    saveBase64AsImage(base64Image, 'output' + '.jpg');
-    idx += 1
-}, 250)
-
-// Additional tests or cleanup can go here
