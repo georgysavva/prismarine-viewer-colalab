@@ -40,9 +40,6 @@ class Viewer {
 
   setVersion (version) {
     version = getVersion(version)
-<<<<<<< HEAD
-    // console.log('Using version: ' + version)
-=======
     if (version === null) {
       const msg = `${version} is not supported`
       window.alert(msg)
@@ -50,7 +47,6 @@ class Viewer {
       return false
     }
     console.log('Using version: ' + version)
->>>>>>> upstream/master
     this.version = version
     this.world.setVersion(version)
     this.entities.clear()
