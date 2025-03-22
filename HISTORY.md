@@ -1,3 +1,23 @@
+### 1.33.0
+* [Fix headless (#436)](https://github.com/PrismarineJS/prismarine-viewer/commit/1bcd495ba8ab067c163d7653609276b27d8c41e9) (thanks @caenopy)
+
+### 1.32.0
+* [Update to node 22 (#453)](https://github.com/PrismarineJS/prismarine-viewer/commit/774d578e5b02af5112a112b9ebd70bbc2e16a5eb) (thanks @rom1504)
+
+### 1.31.0
+* [1.21.4 (#452)](https://github.com/PrismarineJS/prismarine-viewer/commit/cf65208c2df9520dba8d8bc00ce9cc9f63edbe78) (thanks @SuperGamerTron)
+
+### 1.30.0
+* [Support 1.21.1 (New) (#450)](https://github.com/PrismarineJS/prismarine-viewer/commit/859f8d95a97db54ba9f301236e69fb7f18f0505b) (thanks @SuperGamerTron)
+* [Update ci.yml actions/upload-artifact (#448)](https://github.com/PrismarineJS/prismarine-viewer/commit/c2c89a16fd65f05b017089f7b2246ec92218a963) (thanks @extremeheat)
+
+### 1.29.0
+* [Update upload action](https://github.com/PrismarineJS/prismarine-viewer/commit/db8bfb0f9745d4b26ce73e07b9b92c586e727117) (thanks @rom1504)
+* [Added support for proxy (#429)](https://github.com/PrismarineJS/prismarine-viewer/commit/02b74ff8b84263c49b61d38626dedc7b18afd61a) (thanks @sefirosweb)
+* [Bump actions/download-artifact from 2 to 4.1.7 in /.github/workflows (#433)](https://github.com/PrismarineJS/prismarine-viewer/commit/f24ea1572d10953eab4a7181a61ee45d310d680e) (thanks @dependabot[bot])
+* [Bump @tweenjs/tween.js from 19.0.0 to 23.1.1 (#424)](https://github.com/PrismarineJS/prismarine-viewer/commit/b7624c36b908ab7bcd41e2d9af4e94c4dad1425e) (thanks @dependabot[bot])
+* [Update publish.yml to node 18](https://github.com/PrismarineJS/prismarine-viewer/commit/cd324fe1ed7840eef677100d322d06e3dc08e859) (thanks @rom1504)
+
 ### 1.28.0
 * [Handle missing biome data.](https://github.com/PrismarineJS/prismarine-viewer/commit/853d226615526f6cd0ba2296eb88958d78aee175) (thanks @rom1504)
 
