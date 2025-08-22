@@ -23,6 +23,7 @@ function minor (version) {
 }
 
 function getVersion (version) {
+  console.log("version", version);
   if (supportedVersions.indexOf(version) !== -1) return version
   const major = toMajor(version)
   if (lastOfMajor[major] === undefined) {
