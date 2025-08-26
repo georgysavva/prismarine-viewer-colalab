@@ -78,9 +78,10 @@ class Viewer {
     if (pos) {
       let y = pos.y + this.playerHeight;
       if (this.isSneaking) y -= 0.3;
-      new TWEEN.Tween(this.camera.position)
-        .to({ x: pos.x, y, z: pos.z }, 50)
-        .start();
+      // new TWEEN.Tween(this.camera.position)
+      //   .to({ x: pos.x, y, z: pos.z }, 50)
+      //   .start();
+      this.camera.position.set(pos.x, y, pos.z);
     }
     this.camera.rotation.set(pitch, yaw, 0, "ZYX");
   }
