@@ -110,7 +110,7 @@ class WorldView extends EventEmitter {
     delete this.listeners[bot.username];
   }
 
-  async init(pos) {
+  init(pos) {
     const [botX, botZ] = chunkPos(pos);
 
     const positions = [];
@@ -120,24 +120,21 @@ class WorldView extends EventEmitter {
     });
 
     this.lastPos.update(pos);
-    await this._loadChunks(positions);
+    this._loadChunks(positions);
   }
 
-  async _loadChunks(positions, sliceSize = 5, waitTime = 0) {
+  _loadChunks(positions, sliceSize = 5, waitTime = 0) {
     for (let i = 0; i < positions.length; i += sliceSize) {
-      await new Promise((resolve) => setTimeout(resolve, waitTime));
-      await Promise.all(
-        positions.slice(i, i + sliceSize).map((p) => this.loadChunk(p))
-      );
+      positions.slice(i, i + sliceSize).map((p) => this.loadChunk(p));
     }
   }
 
-  async loadChunk(pos) {
+  loadChunk(pos) {
     const [botX, botZ] = chunkPos(this.lastPos);
     const dx = Math.abs(botX - Math.floor(pos.x / 16));
     const dz = Math.abs(botZ - Math.floor(pos.z / 16));
     if (dx < this.viewDistance && dz < this.viewDistance) {
-      const column = await this.world.getColumnAt(pos);
+      const column = this.world.getColumnAt(pos);
       if (column) {
         const chunk = column.toJson();
         this.emitter.emit("loadChunk", { x: pos.x, z: pos.z, chunk });
@@ -151,7 +148,7 @@ class WorldView extends EventEmitter {
     delete this.loadedChunks[`${pos.x},${pos.z}`];
   }
 
-  async updatePosition(pos, force = false) {
+  updatePosition(pos, force = false) {
     const [lastX, lastZ] = chunkPos(this.lastPos);
     const [botX, botZ] = chunkPos(pos);
     if (lastX !== botX || lastZ !== botZ || force) {
@@ -172,7 +169,7 @@ class WorldView extends EventEmitter {
         }
       });
       this.lastPos.update(pos);
-      await this._loadChunks(positions);
+      this._loadChunks(positions);
     } else {
       this.lastPos.update(pos);
     }
